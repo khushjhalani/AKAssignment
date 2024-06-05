@@ -3,22 +3,10 @@ kind: Service
 metadata:
   name: wisecow-service
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: wisecow
   ports:
-    - protocol: TCP
-      port: 4499
-      targetPort: 4499
-      nodePort: 30654
-
-# use load balancer service type if not in minikube
-# use node port service type if in minikube
-# spec:
-#   type: LoadBalancer
-#   selector:
-#     app: wisecow
-#   ports:
-#   - protocol: TCP
-#     port: 4499
-#     targetPort: 4499
+  - protocol: TCP
+    port: 4499
+    targetPort: 4499

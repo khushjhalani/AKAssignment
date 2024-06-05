@@ -1,0 +1,24 @@
+   apiVersion: networking.k8s.io/v1
+   kind: Ingress
+   metadata:
+     name: wisecow-ingress
+     annotations:
+       cert-manager.io/cluster-issuer: "letsencrypt-prod"
+       acme.cert-manager.io/http01-edit-in-place: "true"
+   spec:
+     ingressClassName: nginx
+     tls:
+     - hosts:
+       - "48.217.2.87.nip.io"
+       secretName: wisecow-tls-g9mzn  # Update to the correct secret name
+     rules:
+     - host: "48.217.2.87.nip.io"
+       http:
+         paths:
+         - path: /
+           pathType: Prefix
+           backend:
+             service:
+               name: wisecow-service
+               port:
+                 number: 80
