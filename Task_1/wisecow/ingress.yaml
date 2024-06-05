@@ -9,10 +9,10 @@
      ingressClassName: nginx
      tls:
      - hosts:
-       - "48.217.2.87.nip.io"
-       secretName: wisecow-tls-g9mzn  # Update to the correct secret name
+       - "48.217.2.87.nip.io" #ExampleIP use own domain or Ip
+       secretName: wisecow-tls-g9mzn  
      rules:
-     - host: "48.217.2.87.nip.io"
+     - host: "48.217.2.87.nip.io" #ExampleIP use own domain or Ip
        http:
          paths:
          - path: /
